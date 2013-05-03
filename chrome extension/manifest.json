@@ -19,5 +19,9 @@
 					"script.js"
 				]
 			}
+		],
+		
+		"permissions":[
+			"tabs"
 		]
 }
