@@ -1,0 +1,23 @@
+{
+		// Extension Essential Data
+		"name": "Facebook cHrOME",
+		"version": "1.0",
+		"manifest_version": 2,
+		
+		// Extension Optional Data
+		"description": "to be written",
+		
+		// SCRIPTS & CSS Requirements
+		"content_scripts":[
+			{
+				"matches": [
+					"*://*/*"
+				],
+				"js":[
+					"functions.js",
+					"init.js",
+					"script.js"
+				]
+			}
+		]
+}
