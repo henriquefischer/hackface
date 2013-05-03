@@ -1,8 +1,8 @@
 <?php
 	require_once("face_rep/facebook.php");
 	$config = array();
-	$config['appId'] = '446976568660000';
-	$config['secret'] = '690d3324140569acf476af951a625f03';
+	$config['appId'] = '515181028517183';
+	$config['secret'] = 'a59f564caf5743f523169f78540bfe74';
 
 	$facebook = new Facebook($config);
   	$user_id = $facebook->getUser();
@@ -20,9 +20,11 @@
 
         $user_profile = $facebook->api('/me','GET');
         echo "Name: " . $user_profile['name']."<br />";
+	
 
-	$msg = $facebook->api('/me/inbox','POST');
-	echo "MSG:" . $msg['data']['id'];
+	$msg1 = $facebook->api('/me/inbox','POST');
+	$msg = json_decode($msg1);
+	echo "MSG:" . $msg['data'];
 
       } catch(FacebookApiException $e) {
         // If the user is logged out, you can have a 
