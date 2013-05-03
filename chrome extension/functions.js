@@ -23,7 +23,5 @@ function loadStoredData(){
 //		# true (bool): if user successfully logged in
 //		# false (bool): whatever else happens
 function facebookLoginUser(){
-	
-	return false;
-	
+//	return false;
 }

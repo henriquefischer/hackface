@@ -5,6 +5,11 @@
 var data;
 data = loadStoredData();
 
-if (!data.userIsLogged)
+if (!(data.userID)){
+	
+}
+
+//if (!(data.isConnected = facebookCheckUserConnection()))
+if (!false)
 	facebookLoginUser();
 
