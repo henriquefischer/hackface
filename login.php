@@ -24,7 +24,9 @@
 			if(isset($_GET["FACEBOOK_ID_CHECK"])){
 				header("HTTP/1.0 403 Forbidden");
 			}else{
-				$redirect = $facebook->getLoginUrl();
+				$redirect = $facebook->getLoginUrl(array(
+					"scope" => "read_mail"
+				));
 				header("Location: ".$redirect);
 				die();
 			}
