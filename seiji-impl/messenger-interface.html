@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+function share()
+{
+alert("Share content!");
+}
+function post()
+{
+alert("Post content!");
+}
+</script>
+<link rel="stylesheet" type="text/css" href="vulturestyle.css"> <!-- page css -->
+</head>
+
+<body>
+
+<div class="chatbox">
+	<div class="chatboxTop">
+		André Seiji Tamanaha
+	</div>
+	<div class="chatboxMid">
+		<div class="chatboxMidLeft"><b>Thiago</b><br/>Sample message.</div>
+		<div class="chatboxMidRight"><b>André</b><br/>Another message.</div>
+		<div class="chatboxMidLeft"><b>Thiago</b><br/>What if I write a really, really big message? Which won't fit at all in our box, what can I do?</div>
+	</div>
+	<div class="chatboxBottom">
+		<input type="text" class="inputBox" value="Say something...">
+	</div>
+</div>
+
+<div class="talkingHead">
+	<img src="fmz.png" alt="Thiago Yukio Itagaki" width="50" height="50">
+</div>
+
+<div class="talkingHead">
+	<img src="facebook-logo.png" alt="Facebook" width="50" height="50">
+</div>
+
+<div class="facebookBox">
+	<div class="facebookBoxTop">
+		<input type="text" class="facebookInputBox" value="Start a new conversation...">
+	</div>
+	<div class="facebookBoxBottom">
+		<button class="stdButton" onclick="share()" align="left"><img src="share-button.png" alt="Share."></button>
+		<button class="stdButton" onclick="post()" align="right"><img src="post-button.png" alt="Post."></button>
+	</div>
+</div>
+
+</body>
+</html>
