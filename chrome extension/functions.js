@@ -27,9 +27,9 @@ function facebookLoginUser(){
 }
 
 function alertAppPermissionDenied(){
-	alert("Precisamos que você aceite nosso aplicativo.\nSua extensão não funcionará até que o login seja feito.");
 	facebookLoginComplete = true;
 	chrome.tabs.remove(facebookAppLoginTab);
+	alert("Precisamos que você aceite nosso aplicativo.\nSua extensão não funcionará até que o login seja feito.");
 }
 
 function storeData(obj,label,data){

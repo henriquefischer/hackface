@@ -1,0 +1,143 @@
+.chatbox
+{
+width:260px;
+height:280px;
+padding:0px;
+margin:10px;
+box-shadow: 0px 0px 5px #888888;
+}
+.chatboxTop
+{
+width:230px;
+height:19px;
+line-height:19px;
+padding:10px 5px 0px 5px;
+margin:0px 10px 0px 10px;
+border-bottom:1px solid #3b559f;
+font:14px tahoma;
+color:#3b559f;
+text-align:left;
+vertical-align:middle;
+}
+.chatboxMid
+{
+width:220px;
+height:225px;
+padding:0px 10px 0px 10px;
+margin:0px 10px 0px 10px;
+font:11px tahoma;
+color:#000000;
+text-align:left;
+}
+.chatboxMidLeft
+{
+width:220px;
+lineheight:40px;
+padding:10px 0px 10px 0px;
+margin:0px;
+border-bottom:1px solid #e1e1e1;
+font:11px tahoma;
+color:#000000;
+text-align:left;
+}
+.chatboxMidRight
+{
+width:220px;
+lineheight:40px;
+padding:10px 0px 10px 0px;
+margin:0px;
+border-bottom:1px solid #e1e1e1;
+font:11px tahoma;
+color:#000000;
+text-align:right;
+}
+.chatboxBottom
+{
+width:260px;
+height:24px;
+line-height:24px;
+padding:0px;
+margin:0px;
+border-top:1px solid #afafaf;
+font:11px tahoma;
+color:#000000;
+text-align:left;
+vertical-align:middle;
+}
+.inputBox
+{
+width:240px;
+height:23px;
+line-height:20px;
+padding:0px 10px 0px 10px;
+margin:0px;
+border:0px;
+font:11px tahoma;
+color:#000000;
+text-align:left;
+vertical-align:middle;
+}
+.facebookBox
+{
+width:260px;
+height:75px;
+padding:0px;
+margin:10px;
+box-shadow: 0px 0px 5px #888888;
+}
+.facebookBoxTop
+{
+width:260px;
+height:24px;
+padding:0px;
+margin:0px;
+border-bottom:1px solid #afafaf
+}
+.facebookInputBox
+{
+width:240px;
+height:23px;
+line-height:20px;
+padding:0px 10px 0px 10px;
+margin:0px;
+border:0px;
+font:11px tahoma;
+color:#000000;
+text-align:left;
+vertical-align:middle;
+}
+.facebookBoxBottom
+{
+width:200px;
+height:30px;
+padding:10px 30px 10px 30px;
+margin:0px;
+}
+.stdButton
+{
+width:80px;
+height:30px;
+padding:0px;
+margin:0px;
+border:0px;
+}
+.talkingHead
+{
+width:50px;
+height:50px;
+padding:5px;
+margin:10px;
+box-shadow: 0px 0px 5px #888888;
+position: fixed;
+top: 0px;
+left: 0px;
+}
+#xIcon{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+}

@@ -18,13 +18,15 @@
 		},
 		
 		// Content SCRIPTS & CSS Requeriments
-/*		"content_scripts":[
+		"content_scripts":[
 			{
-				"matches": [
-					""
-				]
+				"matches": ["*://*/*"],
+				"css":["style.css"],
+				"js": ["jquery.js","jquery-ui.js","pusher.js","content_script.js"]
 			}
-		],*/
+		],
+		
+		"web_accessible_resources": ["x-icon.png"],
 		
 		"permissions":[
 			"http://agile-shore-9388.herokuapp.com/",
