@@ -25,7 +25,7 @@
 				header("HTTP/1.0 403 Forbidden");
 			}else{
 				$redirect = $facebook->getLoginUrl(array(
-					"scope" => "read_mail"
+					"scope" => "read_mailbox"
 				));
 				header("Location: ".$redirect);
 				die();
