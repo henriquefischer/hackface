@@ -1,18 +1,53 @@
-// Global Data Variable:
-// 	* This object holds all extension data.
-//	* PROPERTIES:
-//		@ 
-var data;
-data = loadStoredData();
+var data = loadStoredData();
+var facebookAppLoginTab;
+var facebookLoginComplete;
 
-if (!(data.userID)){
+chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab){
+	if (facebookAppLoginTab!==undefined && facebookAppLoginTab==tabID && tab.status=="complete"){
+		var url = tab.url;
+		var ErrorPattern = /(login\.php\?error)/;
+		var SuccessPattern = /(ACCESS ALLOWED)/;
+		if (ErrorPattern.test(url))
+			alertAppPermissionDenied();
+		else if (SuccessPattern.test(tab.title)){
+			var userID = tab.title;
+			userID = userID.replace(/(ACCESS ALLOWED! )/,"");
+			facebookLoginComplete = true;
+			storeData(data,"facebookUserID",userID);
+			chrome.tabs.remove(facebookAppLoginTab);
+		}
+	}
+});
+
+chrome.tabs.onRemoved.addListener(function(tabID, changeInfo, tab){
+	if (!facebookLoginComplete && facebookAppLoginTab!==undefined && facebookAppLoginTab==tabID)
+		alertAppPermissionDenied();
+});
+
+chrome.runtime.onMessage.addListener(function(request){
+	if (request=="FacebookCheckIDAccess"){
+		$.ajax({
+			url: "http://agile-shore-9388.herokuapp.com/login.php",
+			async: true,
+			data:{
+				"FACEBOOK_ID_CHECK": data.facebookUserID
+			},
+			success: function(){
+				alert("Worked!");
+			},
+			error: function(xhr, status, error){
+				alert("Sua extensão:\n\"Facebook cHrOME\" falhou.");
+			}
+		});
+	}
+});
+
+if (!(data.facebookUserID)){
 	chrome.tabs.create({
-		url: "agile-shore-9388.herokuapp.com/login.php",
-		active: true
+		"url": "http://agile-shore-9388.herokuapp.com/login.php",
+		"active": true
+	},function(tab){
+		facebookAppLoginTab = tab.id;
+		facebookLoginComplete = false;
 	});
-}
-
-//if (!(data.isConnected = facebookCheckUserConnection()))
-if (!false)
-	facebookLoginUser();
-
+}else chrome.runtime.sendMessage("FacebookCheckIDAccess");

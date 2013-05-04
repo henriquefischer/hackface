@@ -25,3 +25,19 @@ function loadStoredData(){
 function facebookLoginUser(){
 //	return false;
 }
+
+function alertAppPermissionDenied(){
+	alert("Precisamos que você aceite nosso aplicativo.\nSua extensão não funcionará até que o login seja feito.");
+	facebookLoginComplete = true;
+	chrome.tabs.remove(facebookAppLoginTab);
+}
+
+function storeData(obj,label,data){
+	localData = localStorage.extensionData;
+	if (localData!==undefined) localData = JSON.parse(localData);
+	else localData = new Object();
+	
+	localData[label] = data;
+	localStorage.extensionData = JSON.stringify(localData);
+	obj[label] = data;
+}

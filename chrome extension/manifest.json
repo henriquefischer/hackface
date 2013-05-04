@@ -7,21 +7,27 @@
 		// Extension Optional Data
 		"description": "to be written",
 		
-		// SCRIPTS & CSS Requirements
-		"content_scripts":[
+		// Background SCRIPTS Requeriments
+		"background":{
+			"scripts":[
+				"jquery.js",
+				"functions.js",
+				"init.js",
+				"script.js"
+			]
+		},
+		
+		// Content SCRIPTS & CSS Requeriments
+/*		"content_scripts":[
 			{
 				"matches": [
-					"*://*/*"
-				],
-				"js":[
-					"functions.js",
-					"init.js",
-					"script.js"
+					""
 				]
 			}
-		],
+		],*/
 		
 		"permissions":[
+			"http://agile-shore-9388.herokuapp.com/",
 			"tabs"
 		]
 }
