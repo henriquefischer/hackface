@@ -33,7 +33,22 @@ chrome.runtime.onMessage.addListener(function(request){
 				"FACEBOOK_ID_CHECK": data.facebookUserID
 			},
 			success: function(){
-				alert("Worked!");
+				chrome.runtime.sendMessage("FacebookStartHome");
+			},
+			error: function(xhr, status, error){
+				alert("Sua extensão:\n\"Facebook cHrOME\" falhou.");
+			}
+		});
+	}else if (request=="FacebookStartHome"){
+		$.ajax({
+			url: "http://agile-shore-9388.herokuapp.com/beginChat.php",
+			async: true,
+			data:{
+				"FACEBOOK_ID": data.facebookUserID
+			},
+			success: function(data){
+				var str = JSON.stringify(data);
+				alert("Worked\n"+str);
 			},
 			error: function(xhr, status, error){
 				alert("Sua extensão:\n\"Facebook cHrOME\" falhou.");

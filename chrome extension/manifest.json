@@ -6,15 +6,15 @@
 		
 		// Extension Optional Data
 		"description": "to be written",
+		"icons": {
+			"16": "fb-chrome-logo-16.png",
+			"48": "fb-chrome-logo-48.png",
+			"128": "fb-chrome-logo-128.png"
+		},
 		
 		// Background SCRIPTS Requeriments
 		"background":{
-			"scripts":[
-				"jquery.js",
-				"functions.js",
-				"init.js",
-				"script.js"
-			]
+			"page":"ext_index.html"
 		},
 		
 		// Content SCRIPTS & CSS Requeriments
