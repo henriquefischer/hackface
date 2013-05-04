@@ -14,6 +14,7 @@
 		function newHead() {
 			var divTag = document.createElement("div");
             divTag.id = "tH"+idno;
+			divTag.style.position="fixed";
 			divTag.style.width ="50px";
 			divTag.style.height ="50px";
             divTag.style.margin = "10px";
@@ -38,6 +39,25 @@
 			this.id = idno;
 		};
 		
+		$(document).ready(function(){
+			
+			var divX = document.createElement("div");
+            divX.id = "xIcon";
+			divX.style.position = "absolute";
+			divX.style.top = "85%";
+			divX.style.left = "45%";
+            divX.style.marginTop = "-50px";
+            divX.style.maginLeft = "-50px";
+            divX.style.width = "100px";
+			divX.style.height = "100px";
+ 
+            divX.innerHTML = "<img src=\"x-icon.png\" width=\"100\" height=\"100\">";
+			
+            document.body.appendChild(divX);
+ 
+			$( "#xIcon" ).hide();
+		});
+		
 		$(function() {
 			$( "#xIcon" ).droppable({
 				drop: function( event, ui ) {
@@ -46,10 +66,6 @@
 						$("#"+idToDelete).remove();
 				}
 			});
-		});
-		
-		$(document).ready(function(){
-			$( "#xIcon" ).hide();
 		});
 		
 		function showXIcon(){
@@ -72,16 +88,19 @@
 			divMain.style.height ="280px";
             divMain.style.margin = "10px";
             divMain.style.padding = "0px";
+			//var x = getElementById("#"+tHid);
+			//divMain.style.left = x.position PRECISA IMPLEMENTAR ESSA BOMBA!
+			//divMain.style.position = "absolute";
 			divMain.style.boxShadow = "0px 0px 5px #888888";
-            document.body.appendChild(divMain);
-		}
+			
+			document.body.appendChild(divMain);
+			
+		};
 
 	</script>
 </head>
 <body>
 
-<div id="xIcon"><img src="x-icon.png" width="100" height="100"></div>
- 
 <button type="button" onclick="newHead()">Click for a new Oraculo!</button>
 
 </body>
