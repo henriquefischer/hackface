@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> <!-- necessary for drag n drop implementation -->
+	<link rel="stylesheet" href="/resources/demos/style.css" /> <!-- necessary for drag n drop implementation -->
+	<link rel="stylesheet" type="text/css" href="vulturestyle.css"> <!-- page css -->
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script> <!-- necessary for drag n drop implementation -->
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> <!-- necessary for drag n drop implementation -->
+	
+	<script>
+		var idno=0;
+		
+		function newHead() {
+			var divTag = document.createElement("div");
+            divTag.id = "tH"+idno;
+			divTag.style.width ="50px";
+			divTag.style.height ="50px";
+            divTag.style.margin = "10px";
+            divTag.style.padding = "5px";
+            divTag.className = "ui-widget-content";  <!-- necessary for drag n drop implementation -->
+			divTag.style.boxShadow = "0px 0px 5px #888888";
+ 
+            divTag.innerHTML = "<img  id=\"imgTag\" onmousedown=\"showXIcon()\" onmouseup=\"hideXIcon()\" ondblclick=\"chatPopUp(event)\" src=\"fmz.png\" width=\"50\" height=\"50\">";  <!-- modify to user.png, send id somehow -->
+			
+            document.body.appendChild(divTag);
+			dragElem();
+			changeImgId();
+			idno++;
+		};
+		
+		function dragElem() {
+			$("#tH"+idno).draggable();
+		};
+		
+		function changeImgId(){
+			$("#imgTag").attr("id",idno);
+			this.id = idno;
+		};
+		
+		$(function() {
+			$( "#xIcon" ).droppable({
+				drop: function( event, ui ) {
+					$( this )
+						var idToDelete = ui.draggable.attr("id");
+						$("#"+idToDelete).remove();
+				}
+			});
+		});
+		
+		$(document).ready(function(){
+			$( "#xIcon" ).hide();
+		});
+		
+		function showXIcon(){
+			$( "#xIcon" ).fadeIn(500);
+		};
+
+		function hideXIcon(){
+			$( "#xIcon" ).fadeOut(500);
+		};
+		
+		function chatPopUp(event){
+			
+			var idOfTH = event.target.id; //number of each id
+			var tHid = "tH"+idOfTH; //gets the id of each talking head
+			
+			//create a new div
+			var divMain = document.createElement("div");
+            divMain.id = "chat"+idOfTH;
+			divMain.style.width ="260px";
+			divMain.style.height ="280px";
+            divMain.style.margin = "10px";
+            divMain.style.padding = "0px";
+			divMain.style.boxShadow = "0px 0px 5px #888888";
+            document.body.appendChild(divMain);
+		}
+
+	</script>
+</head>
+<body>
+
+<div id="xIcon"><img src="x-icon.png" width="100" height="100"></div>
+ 
+<button type="button" onclick="newHead()">Click for a new Oraculo!</button>
+
+</body>
+</html>
